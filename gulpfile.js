@@ -170,6 +170,13 @@ gulp.task('serverProd', function() {
     });
 });
 
+//««««««««««««««««««««««««««««««««««
+// rimraf task  (Clean producion Directory)
+//««««««««««««««««««««««««««««««««««
+gulp.task('clean', function (cb) {
+rimraf('./production', cb);
+});
+
 
 //««««««««««««««««««««
 // gulp Default task
