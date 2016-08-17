@@ -93,8 +93,65 @@ gulp.task('uglifyJs', function(){
      .pipe(gulp.dest(uglyJsDest));  
 });
 
+//««««««««««««««««««««««««««««
+// Compass Task (development)
+//««««««««««««««««««««««««««««
+// Sass file path
+var sassSrc = ['./development/components/sass/style.scss'];
+var sassDest = './development/css/';
+// Task
+gulp.task('compass', function(){
+   gulp.src(sassSrc)
+      .pipe(plumber({
+        errorHandler: function (error) {
+        console.log(error.message);
+        this.emit('end');
+      }}))
+      .pipe(compass({
+        config_file: './config.rb',
+        css: './development/css',
+        sass: './development/components/sass',
+        javascript: './development/javascript',
+        image: './development/components/images',
+        style: 'expanded',
+        comments: true,
+        require: ['susy']
+      }))
+      .on('error', function(err) {
+        console.log(err);
+        this.emit('end');
+      }) 
+      .pipe(autoprefixer('last 2 versions'))
+      .pipe(gulp.dest(sassDest))
+      .pipe(reload({stream:true}));
+});
+
 
 //««««««««««««««««««««
 // gulp Default task
 //««««««««««««««««««««
-gulp.task('default', ['concatJs', 'concatLibs', 'concatMinLibs', 'uglifyJs']);
+gulp.task('default', ['concatJs', 'concatLibs', 'concatMinLibs', 'uglifyJs', 'compass']);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

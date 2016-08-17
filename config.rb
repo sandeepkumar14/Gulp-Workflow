@@ -1,0 +1,12 @@
+project_type = :stand_alone
+environment = :development
+http_path = "/"
+sass_dir = "./development/components/sass"
+css_dir = "./development/css"
+images_dir = "./development/components/images/"
+javascripts_dir = "./development/js"
+line_comments = true
+sourcemap = true
+preferred_syntax = :scss
+output_style = :expanded
+relative_assets = true 
