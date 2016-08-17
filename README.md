@@ -9,12 +9,10 @@ This is a sample gulp prject.
 ==> The modules being used for this project
 Bower, browser-sync, gulp, gulp-autoprefixer, gulp-compass, gulp-concat, gulp-htmlmin, gulp-minify-css, gulp-plumber, gulp-uglify and rimraf.
 
-==> Steps to use gulp work flow
+==> Steps to use gulp work flow <br>
+```js
 git clone https://github.com/sandeepkumar14/Gulp-Workflow.git
 
-
-
-```js
 sudo npm install
 
 bower install
