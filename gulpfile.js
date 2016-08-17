@@ -126,11 +126,23 @@ gulp.task('compass', function(){
       .pipe(reload({stream:true}));
 });
 
+//««««««««««««««««««««««««««««««««««
+// gulp minify CSS (for Production)
+//««««««««««««««««««««««««««««««««««
+var cssSrc = 'development/css/style.css';
+var cssDest = 'production/css';
+//Task
+gulp.task('minifyCSS', function(){
+  gulp.src(cssSrc)
+    .pipe(minifyCSS())
+    .pipe(gulp.dest(cssDest));
+});
+
 
 //««««««««««««««««««««
 // gulp Default task
 //««««««««««««««««««««
-gulp.task('default', ['concatJs', 'concatLibs', 'concatMinLibs', 'uglifyJs', 'compass']);
+gulp.task('default', ['concatJs', 'concatLibs', 'concatMinLibs', 'uglifyJs', 'compass', 'minifyCSS']);
 
 
 
