@@ -138,11 +138,32 @@ gulp.task('minifyCSS', function(){
     .pipe(gulp.dest(cssDest));
 });
 
+//««««««««««««««««««««
+// gulp HTML task
+//««««««««««««««««««««
+var htmlSrc = './development/index.html';
+// Task
+gulp.task('html', function(){
+  gulp.src(htmlSrc)
+  .pipe(reload({stream:true}));
+});
+
+//«««««««««««««««««««««««««««««««««
+// Browser Sync task (Development)
+//«««««««««««««««««««««««««««««««««
+gulp.task('serverDev', function() {
+    browserSync.init({
+        server: {
+            baseDir: "./development"
+        }
+    });
+});
+
 
 //««««««««««««««««««««
 // gulp Default task
 //««««««««««««««««««««
-gulp.task('default', ['concatJs', 'concatLibs', 'concatMinLibs', 'uglifyJs', 'compass', 'minifyCSS']);
+gulp.task('default', ['concatJs', 'concatLibs', 'concatMinLibs', 'uglifyJs', 'compass', 'minifyCSS', 'html', 'serverDev']);
 
 
 
