@@ -80,8 +80,21 @@ gulp.task('concatMinLibs', function(){
      .pipe(gulp.dest(libMinDest));
 });
 
+//«««««««««««««««««««««««««««««
+// Uglify Task (for production)
+//«««««««««««««««««««««««««««««
+// File Paths
+var js2uglify = ['./development/javascript/script.js'];
+var uglyJsDest = './production/javascript/';
+// Task
+gulp.task('uglifyJs', function(){
+   gulp.src(js2uglify)
+     .pipe(uglify())
+     .pipe(gulp.dest(uglyJsDest));  
+});
+
 
 //««««««««««««««««««««
 // gulp Default task
 //««««««««««««««««««««
-gulp.task('default', ['concatJs', 'concatLibs', 'concatMinLibs']);
+gulp.task('default', ['concatJs', 'concatLibs', 'concatMinLibs', 'uglifyJs']);
