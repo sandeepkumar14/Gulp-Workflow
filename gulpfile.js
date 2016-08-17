@@ -177,6 +177,17 @@ gulp.task('clean', function (cb) {
 rimraf('./production', cb);
 });
 
+//««««««««««««««««««««
+// gulp Watch task
+//««««««««««««««««««««
+gulp.task('watch', function(){
+  gulp.watch('./development/components/javascript/**/*.js', ['concatJs', 'uglifyJs']);
+  gulp.watch('./development/components/sass/**/*.scss', ['compassDev', 'minifyCSS']);
+  gulp.watch('./gulpfile.js', ['default']);
+  gulp.watch('./development/**/*.html', ['html', 'minifyHTML']);
+
+});
+
 
 //««««««««««««««««««««
 // gulp Default task
