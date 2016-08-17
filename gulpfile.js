@@ -39,7 +39,49 @@ gulp.task('concatJs', function(){
      .pipe(reload({stream:true}));
 });
 
+//««««««««««««««««««««««««««««««««««««««««««««««««««««««««««««««««
+// Concatenation of all the javaScript libraries (for development)
+//««««««««««««««««««««««««««««««««««««««««««««««««««««««««««««««««
+// javaScript Libraries Path
+var libSrc= [ 
+    './development/components/lib/angular/angular.js', 
+    './development/components/lib/angular-resource/angular-resource.js',
+    './development/components/lib/angular-route/angular-route.js',
+    './development/components/lib/jquery/index.js', 
+    './development/components/lib/jquery-migrate/index.js',
+    './development/components/lib/bootstrap/dist/js/bootstrap.js'
+];
+var libDest = './development/lib/'; 
+//Task
+gulp.task('concatLibs', function(){
+   gulp.src(libSrc)
+     .pipe(concat('libraries.js'))
+     .pipe(gulp.dest(libDest));
+});
+
+
+//«««««««««««««««««««««««««««««««««««««««««««««««««««««««««««««««
+// Concatenation of all the minifies javaScripts (for production)
+//«««««««««««««««««««««««««««««««««««««««««««««««««««««««««««««««
+// JS Libraries Minified files path
+var libMinSrc = [
+    './development/components/lib/angular/angular.min.js', 
+    './development/components/lib/angular-resource/angular-resource.min.js',
+    './development/components/lib/angular-route/angular-route.min.js',
+    './development/components/lib/jquery_min/index.js',
+    './development/components/lib/jquery-migrate_min/index.js',
+    './development/components/lib/bootstrap/dist/js/bootstrap.min.js'
+];
+var libMinDest = './production/lib/';
+//Task
+gulp.task('concatMinLibs', function(){
+   gulp.src(libMinSrc)
+     .pipe(concat('libraries.js'))
+     .pipe(gulp.dest(libMinDest));
+});
+
+
 //««««««««««««««««««««
 // gulp Default task
 //««««««««««««««««««««
-gulp.task('default', ['concatJs']);
+gulp.task('default', ['concatJs', 'concatLibs', 'concatMinLibs']);
