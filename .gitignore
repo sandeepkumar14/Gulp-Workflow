@@ -33,6 +33,7 @@ Thumbs.db
 ««««««««««««««««««««««««««««««««««««««««««««««««
 node_modules/
 bower_components/
+development/components/lib/
 .sass-cache
 .css.map
 npm-debug.log
