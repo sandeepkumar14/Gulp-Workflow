@@ -1,0 +1,14 @@
+{
+  "name": "jquery",
+  "_cacheHeaders": {
+    "ETag": "\"5759b652-40464\"",
+    "Last-Modified": "Thu, 09 Jun 2016 18:32:50 GMT",
+    "Content-Length": "95092",
+    "Content-Type": "application/javascript; charset=utf-8"
+  },
+  "_release": "e-tag:5759b652-",
+  "main": "index.js",
+  "_source": "https://code.jquery.com/jquery-3.0.0.js",
+  "_target": "*",
+  "_originalSource": "https://code.jquery.com/jquery-3.0.0.js"
+}

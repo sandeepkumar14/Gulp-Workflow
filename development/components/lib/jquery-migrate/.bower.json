@@ -1,0 +1,13 @@
+{
+  "name": "jquery-migrate",
+  "_cacheHeaders": {
+    "ETag": "W/\"57598fd4-3a4b\"",
+    "Last-Modified": "Thu, 09 Jun 2016 15:48:36 GMT",
+    "Content-Type": "application/javascript; charset=utf-8"
+  },
+  "_release": "e-tag:W/\"57598fd",
+  "main": "index.js",
+  "_source": "https://code.jquery.com/jquery-migrate-3.0.0.js",
+  "_target": "*",
+  "_originalSource": "https://code.jquery.com/jquery-migrate-3.0.0.js"
+}
