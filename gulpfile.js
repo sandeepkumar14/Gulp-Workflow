@@ -159,6 +159,17 @@ gulp.task('serverDev', function() {
     });
 });
 
+//««««««««««««««««««««««««««««««««««
+// Browser Sync task  (Production)
+//««««««««««««««««««««««««««««««««««
+gulp.task('serverProd', function() {
+    browserSync.init({
+        server: {
+            baseDir: "./production"
+        }
+    });
+});
+
 
 //««««««««««««««««««««
 // gulp Default task
