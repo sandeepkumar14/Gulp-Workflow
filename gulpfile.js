@@ -29,18 +29,24 @@ gulp.task('sass', function(){
    return gulp.src(sassSrc)
       .pipe(sourcemaps.init({loadMaps: true, debug: true, identityMap: true}))
       .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
-      .pipe(plumber({            // plumber
-        errorHandler: onError
-      }))
+      .pipe(plumber({
+        errorHandler: function (err) {
+            console.log(err);
+            this.emit('end');
+        }
+    }))
       .pipe(autoprefixer({
         browser: ['last 2 versions'],
         cascade: false
       }))
       .pipe(sourcemaps.write('../maps/css/'))
       .pipe(gulp.dest(sassDest))
-      .pipe(plumber({            // plumber
-        errorHandler: onError
-      }))
+      .pipe(plumber({
+        errorHandler: function (err) {
+            console.log(err);
+            this.emit('end');
+        }
+    }))
       .pipe(reload({stream:true}));
 });
 
@@ -51,8 +57,11 @@ var htmlSrc = './development/index.html';
 // Task
 gulp.task('html', function(){
   gulp.src(htmlSrc)
-  .pipe(plumber({            // plumber
-        errorHandler: onError
+  .pipe(plumber({
+        errorHandler: function (err) {
+            console.log(err);
+            this.emit('end');
+        }
     }))
   .pipe(reload({stream:true}));
 });
@@ -69,12 +78,18 @@ var jsDest = "./development/javascript/";
 gulp.task('concatJs', function(){
    gulp.src(jsSrc)
     .pipe(sourcemaps.init())   // source maps
-    .pipe(plumber({            // plumber
-        errorHandler: onError
+    .pipe(plumber({
+        errorHandler: function (err) {
+            console.log(err);
+            this.emit('end');
+        }
     }))
     .pipe(concat('script.js'))
-    .pipe(plumber({            // plumber
-        errorHandler: onError
+    .pipe(plumber({
+        errorHandler: function (err) {
+            console.log(err);
+            this.emit('end');
+        }
     }))  
     .pipe(sourcemaps.write('../maps/js/')) 
     .pipe(gulp.dest(jsDest))
@@ -97,14 +112,36 @@ var libDest = './development/lib/';
 //Task
 gulp.task('concatLibs', function(){
   gulp.src(libSrc)
-    .pipe(plumber({            // plumber
-        errorHandler: onError
+    .pipe(plumber({
+        errorHandler: function (err) {
+            console.log(err);
+            this.emit('end');
+        }
     }))
     .pipe(concat('libraries.js'))
-    .pipe(plumber({            // plumber
-        errorHandler: onError
+    .pipe(plumber({
+        errorHandler: function (err) {
+            console.log(err);
+            this.emit('end');
+        }
     }))
     .pipe(gulp.dest(libDest));
+});
+
+// Concatenation of all the CSS Libraries (for Development)
+//«««««««««««««««««««««««««««««««««««««««««««««««««««««««««««««««
+// CSS Libraries Minified files path
+var libCssSrc = [
+    './components/lib/bootstrap/dist/css/bootstrap.css'
+];
+var libCssDest = './development/lib/css/';
+//Task
+gulp.task('concatCssLibs', function(){
+   gulp.src(libCssSrc)
+     .pipe(concat('libraries.css'))
+     .pipe(gulp.dest(libCssDest))
+     .on('end', function () {
+        gutil.log(gutil.colors.green('[✔] Finished  CSS libraries Concatination Task.'));});
 });
 
 
@@ -135,8 +172,11 @@ var uglyJsDest = './production/javascript/';
 // Task
 gulp.task('uglifyJs', function(){
    gulp.src(js2uglify)
-   .pipe(plumber({            // plumber
-        errorHandler: onError
+   .pipe(plumber({
+        errorHandler: function (err) {
+            console.log(err);
+            this.emit('end');
+        }
     }))
      .pipe(uglify())
      .pipe(gulp.dest(uglyJsDest));  
@@ -158,12 +198,18 @@ var libMinDest = './production/lib/js';
 //Task
 gulp.task('concatMinLibs', function(){
   gulp.src(libMinSrc)
-    .pipe(plumber({            // plumber
-        errorHandler: onError
+    .pipe(plumber({
+        errorHandler: function (err) {
+            console.log(err);
+            this.emit('end');
+        }
     }))
     .pipe(concat('libraries.js'))
-    .pipe(plumber({            // plumber
-        errorHandler: onError
+    .pipe(plumber({
+        errorHandler: function (err) {
+            console.log(err);
+            this.emit('end');
+        }
     }))
     .pipe(gulp.dest(libMinDest));
 });
@@ -194,8 +240,11 @@ var cssDest = 'production/css/';
 //Task
 gulp.task('minifyCss', function(){
   return gulp.src(cssSrc)
-    .pipe(plumber({            // plumber
-        errorHandler: onError
+    .pipe(plumber({
+        errorHandler: function (err) {
+            console.log(err);
+            this.emit('end');
+        }
     }))
     .pipe(cleanCSS({compatibility: 'ie8'}))
     .pipe(gulp.dest(cssDest));
@@ -209,8 +258,11 @@ var htmlDest = './production';
 // Task
 gulp.task('minifyHTML', function(){
   return gulp.src(htmlSrc)
-  .pipe(plumber({            // plumber
-        errorHandler: onError
+  .pipe(plumber({
+        errorHandler: function (err) {
+            console.log(err);
+            this.emit('end');
+        }
     }))
   .pipe(htmlmin({collapseWhitespace: true, comment: true}))
   .pipe(gulp.dest(htmlDest));
