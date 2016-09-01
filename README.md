@@ -1,5 +1,5 @@
 # Gulp Project 
-This is sample gulp work flow.
+This is sample gulp workflow.
 
 # The Pre Requirements for this project in order to use it.  
 
