@@ -1,28 +1,34 @@
-# Gulp-Workflow
-The gulp workflow.
-<p align="center">Requirements for the gulp to be run on a system:</p>
-<p align="center"><a href="https://nodejs.org/">Node JS</a></p>
-<p align="center"><a href="https://www.npmjs.com/">npm</a></p>
-<p align="center"><a href="https://www.ruby-lang.org/">Ruby</a></p>
-<p align="center"><a href="http://compass-style.org/">Compass</a></p>
+# Gulp Project 
+This is sample gulp work flow.
 
-==> The modules being used for this project
-Bower, browser-sync, gulp, gulp-autoprefixer, gulp-compass, gulp-concat, gulp-htmlmin, gulp-minify-css, gulp-plumber, gulp-uglify and rimraf.
+# The Pre Requirements for this project in order to use it.  
 
-==> Steps to use gulp work flow <br>
-```js
-git clone https://github.com/sandeepkumar14/Gulp-Workflow.git
+<p align="center">* [Node JS](https://nodejs.org/)</p>
+<p align="center">* [NPM](https://www.npmjs.com/)</p>
+<p align="center">* [GIT](https://git-scm.com/downloads)</p>
 
-sudo npm install
+# `The List of the packages being used in this Gulp Project`
 
-bower install
+* gulp
+* bower
+* browser-sync
+* del
+* gulp-autoprefixer
+* gulp-clean-css
+* gulp-concat
+* gulp-htmlmin
+* gulp-sass
+* gulp-plumber
+* gulp-sourcemaps
+* gulp-uglify
 
-gulp
-(This will open the developement files in a browser and we will have live reload functionalities, not even in browser, also in mobile devices, if both mobile and pc are connected to same network (wifi). 
-For more info please checkp https://www.browsersync.io/docs/gulp
-
-gulp serverProd
-(This will serve the production files in a browser to check the production files work fine.)
-
-gulp rimraf
-(This will clean up production files, in case a clean start.)
+# Instructions to use the project
+* Clone the project by using https://github.com/sandeepkumar14/gulp.git
+* Once inside the cloned folder, run `sudo npm install`
+* Then run `bower install`
+* This project divided into development and production. For each task there are two seperate browser sync server and tasks.
+* For Development run `gulp`
+* For Production `gulp production`
+* Whenever the `gulp` and `gulp production tasks being run the html file will be automatically will open in default browser.`
+* To clean up or start clean there is a clean task using gulp delete module. Just run `gulp clean`
+* We can always combine the development and production tasks together, in that case we just combine all in default task, and we will just run the `gulp` in terminal once.
