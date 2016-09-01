@@ -139,9 +139,7 @@ var libCssDest = './development/lib/css/';
 gulp.task('concatCssLibs', function(){
    gulp.src(libCssSrc)
      .pipe(concat('libraries.css'))
-     .pipe(gulp.dest(libCssDest))
-     .on('end', function () {
-        gutil.log(gutil.colors.green('[✔] Finished  CSS libraries Concatination Task.'));});
+     .pipe(gulp.dest(libCssDest));
 });
 
 

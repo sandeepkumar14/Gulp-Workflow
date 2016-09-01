@@ -1,0 +1,59 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab|Merriweather|Josefin+Slab|Oswald|Bree+Serif);
+html {
+  font-size: 62.5%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 1.8rem;
+  font-family: "Merriweather", Helvetica, sans-serif;
+  color: #022933;
+  background-color: #EEE8D7;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Bree Serif", Helvetica, sans-serif;
+  color: #D14348;
+}
+
+.media {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.media .item {
+  margin-bottom: 20px;
+  border-top: 1px dotted #D14348;
+  padding-top: 10px;
+}
+
+.media .head {
+  margin: 0;
+  padding: 0;
+  color: #0076A3;
+  font-size: 2rem;
+}
+
+.media p {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.media img {
+  float: left;
+  margin-right: 10px;
+}
+
+.media a {
+  text-decoration: none;
+  color: #022933;
+}
+
+/*# sourceMappingURL=../maps/css/style.css.map */

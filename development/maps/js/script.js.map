@@ -1,0 +1,1 @@
+{"version":3,"sources":["sample1.js","sample2.js"],"names":[],"mappings":"AAAA;AACA;AACA;ACFA;AACA;AACA","file":"script.js","sourcesContent":["$(document).ready(function() {\n   console.log(\"This is a Sample.\");\n});","$(document).ready(function() {\n   console.log(\"Sample2\");\n});"],"sourceRoot":"/source/"}
