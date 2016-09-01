@@ -29,6 +29,6 @@ This is sample gulp workflow.
 * This project divided into development and production. For each task there are two seperate browser sync server and tasks.
 * For Development run `gulp`
 * For Production `gulp production`
-* Whenever the `gulp` and `gulp production tasks being run the html file will be automatically will open in default browser.`
+* Whenever the `gulp` and gulp production tasks being run the html file will automatically open in default browser.
 * To clean up or start clean there is a clean task using gulp delete module. Just run `gulp clean`
 * We can always combine the development and production tasks together, in that case we just combine all in default task, and we will just run the `gulp` in terminal once.
