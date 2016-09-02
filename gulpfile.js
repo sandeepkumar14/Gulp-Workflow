@@ -108,7 +108,6 @@ var libSrc= [
     './components/lib/bootstrap/dist/js/bootstrap.js',
     './components/lib/jquery.easing/index.js',
     './components/lib/jquery.compatibility/index.js',
-    './components/custom_libs/classie.js'
 ];
 var libDest = './development/lib/js/'; 
 
@@ -197,7 +196,6 @@ var libMinSrc = [
     './components/lib/bootstrap/dist/js/bootstrap.min.js',
     './components/lib/jquery.easing/index.js',
     './components/lib/jquery.compatibility/index.js',
-    './components/custom_libs/classie.min.js'
 ];
 var libMinDest = './production/lib/js';
 //Task
