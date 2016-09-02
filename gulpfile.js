@@ -105,7 +105,10 @@ var libSrc= [
     './components/lib/angular-route/angular-route.js',
     './components/lib/jquery/index.js', 
     './components/lib/jquery-migrate/index.js',
-    './components/lib/bootstrap/dist/js/bootstrap.js'
+    './components/lib/bootstrap/dist/js/bootstrap.js',
+    './components/lib/jquery.easing/index.js',
+    './components/lib/jquery.compatibility/index.js',
+    './components/custom_libs/classie.js'
 ];
 var libDest = './development/lib/'; 
 
@@ -190,7 +193,10 @@ var libMinSrc = [
     './components/lib/angular-route/angular-route.min.js',
     './components/lib/jquery_min/index.js',
     './components/lib/jquery-migrate_min/index.js',
-    './components/lib/bootstrap/dist/js/bootstrap.min.js'
+    './components/lib/bootstrap/dist/js/bootstrap.min.js',
+    './components/lib/jquery.easing/index.js',
+    './components/lib/jquery.compatibility/index.js',
+    './components/custom_libs/classie.min.js'
 ];
 var libMinDest = './production/lib/js';
 //Task

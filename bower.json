@@ -16,6 +16,8 @@
     "jquery-migrate_min": "https://code.jquery.com/jquery-migrate-3.0.0.min.js",
     "angular": "^1.5.8",
     "angular-route": "^1.5.8",
-    "angular-resource": "^1.5.8"
+    "angular-resource": "^1.5.8",
+    "jquery.easing": "http://gsgd.co.uk/sandbox/jquery/easing/jquery.easing.1.3.js",
+    "jquery.compatibility": "http://gsgd.co.uk/sandbox/jquery/easing/jquery.easing.compatibility.js"
   }
 }
