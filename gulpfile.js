@@ -110,7 +110,7 @@ var libSrc= [
     './components/lib/jquery.compatibility/index.js',
     './components/custom_libs/classie.js'
 ];
-var libDest = './development/lib/'; 
+var libDest = './development/lib/js/'; 
 
 //Task
 gulp.task('concatLibs', function(){
@@ -155,7 +155,8 @@ gulp.task('clean', function () {
     './development/css/**',
     './development/javascript/**',
     './development/lib/**',
-    './development/maps/'
+    './development/maps/',
+    // 'components/lib/'
   ]);
  
 });
@@ -229,9 +230,12 @@ var libMinCssDest = './production/lib/css/';
 //Task
 gulp.task('concatMinCssLibs', function(){
    gulp.src(libMinCssSrc)
-     .pipe(plumber({            // plumber
-        errorHandler: onError
-     }))
+     .pipe(plumber({
+        errorHandler: function (err) {
+            console.log(err);
+            this.emit('end');
+        }
+    }))
      .pipe(concat('libraries.css'))
      .pipe(gulp.dest(libMinCssDest));
 });
@@ -318,7 +322,7 @@ gulp.task('watch', function(){
 //««««««««««««««««««««
 gulp.task('default', ['sass', 'html', 'concatJs', 'concatLibs', 'concatCssLibs', 'watch', 'serverDev']);
 
-gulp.task('production', ['uglifyJs', 'concatMinLibs', 'minifyCSS', 'concatMinCssLibs', 'minifyHTML', 'serverProd']);
+gulp.task('production', ['uglifyJs', 'concatMinLibs', 'minifyCss', 'concatMinCssLibs', 'minifyHTML', 'serverProd']);
 
 /*  */
 /*««««««««««««««««««««««««««««««««««««««««««««««««*/
