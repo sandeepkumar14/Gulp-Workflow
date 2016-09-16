@@ -19,6 +19,7 @@
 
 OS generated files
 «««««««««««««««««
+node_modules
 .DS_Store
 .DS_Store?
 ._*
@@ -27,17 +28,40 @@ OS generated files
 ehthumbs.db
 Thumbs.db
 .tmp
+*.env
+*.dev
+npm-debug.log
+Dockerfile
+docker-compose.yml
+bower_components/
+.sass-cache
+*.css.map
+*.js.map
+.css.map
+.js.map
 
 
 #Build System Files that will be ignored by git
 ««««««««««««««««««««««««««««««««««««««««««««««««
-node_modules/
-bower_components/
 components/lib/
-.sass-cache
-.css.map
-npm-debug.log
+components/custom_libs/
+
+# Development
+
 development/lib/
 development/maps/
-production/lib/
-components/custom_libs/
+development/images/
+development/css/fonts/
+# !development/images/favicon/
+# !development/images/json/
+
+
+# Production
+
+production/
+
+
+
+
+
+

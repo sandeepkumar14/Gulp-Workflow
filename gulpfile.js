@@ -8,13 +8,18 @@ var sass= require('gulp-sass');
 var uglify= require('gulp-uglify');
 var cleanCSS = require('gulp-clean-css');
 var sourcemaps = require('gulp-sourcemaps');
-var htmlmin = require('gulp-htmlmin');
+var htmlmin = require('gulp-html-minifier');
+// var htmlmin = require('gulp-htmlmin');
 var plumber= require('gulp-plumber');
 var browserSync = require('browser-sync').create();
 var autoprefixer= require('gulp-autoprefixer'); 
 var reload = browserSync.reload;
 var del = require('del');
-
+var imagemin = require('gulp-imagemin');
+var ejs = require("gulp-ejs");
+// var strip = require('gulp-strip-comments');
+var nodemon= require('gulp-nodemon');
+var jshint = require('gulp-jshint');
 
 //////////////////////////////////////////////////////////
 /* «««««««««««««««« DEVELOPMENT ««««««««««««««««««««««««*/
@@ -66,6 +71,41 @@ gulp.task('html', function(){
   .pipe(reload({stream:true}));
 });
 
+// gulp EJS task
+//««««««««««««««««««««
+var ejsSrc = './views/index.ejs';
+var ejsDest = './development/';
+
+gulp.task('ejs', function(){
+gulp.src(ejsSrc)
+    .pipe(plumber({
+        errorHandler: function (err) {
+            console.log(err);
+            this.emit('end');
+        }
+    }))
+    .pipe(ejs({
+        msg: "EJS Task!",
+        rmWhitespace: true,
+        comment: false,
+    },
+    {ext:'.html'}))
+    .pipe(plumber({
+        errorHandler: function (err) {
+            console.log(err);
+            this.emit('end');
+        }
+    }))
+    .pipe(gulp.dest(ejsDest))
+    .pipe(plumber({
+        errorHandler: function (err) {
+            console.log(err);
+            this.emit('end');
+        }
+    }))
+    .pipe(reload({stream:true}));
+});
+
 /* Custom Javascript files Concatenation */
 /*««««««««««««««««««««««««««««««««««««««««««««««««*/
 var jsSrc= [
@@ -101,13 +141,17 @@ gulp.task('concatJs', function(){
 // javaScript Libraries Path
 var libSrc= [ 
     './components/lib/angular/angular.js', 
-    './components/lib/angular-resource/angular-resource.js',
     './components/lib/angular-route/angular-route.js',
-    './components/lib/jquery/index.js', 
-    './components/lib/jquery-migrate/index.js',
+    './components/lib/angular-animate/angular-animate.js',
+    './components/lib/modernizer/modernizer.js',
+    './components/lib/jquery/index.js',
+    './components/lib/jquery-migrate/index.js', 
     './components/lib/bootstrap/dist/js/bootstrap.js',
     './components/lib/jquery.easing/index.js',
-    './components/lib/jquery.compatibility/index.js',
+    './components/lib/typed.js/js/typed.js',
+    './components/lib/wow/dist/wow.js',
+    './components/lib/Snap.svg/dist/snap.svg.js',
+    './components/customLibs/single-page-nav/jquery.singlePageNav.js'
 ];
 var libDest = './development/lib/js/'; 
 
@@ -134,7 +178,8 @@ gulp.task('concatLibs', function(){
 //«««««««««««««««««««««««««««««««««««««««««««««««««««««««««««««««
 // CSS Libraries Minified files path
 var libCssSrc = [
-    './components/lib/bootstrap/dist/css/bootstrap.css'
+    './components/lib/bootstrap/dist/css/bootstrap.css',
+    './components/lib/animate.css/animate.css'
 ];
 var libCssDest = './development/lib/css/';
 //Task
@@ -150,8 +195,12 @@ gulp.task('concatCssLibs', function(){
 //««««««««««««««««««««««««««««««««««««««««««««««««««««««««««««««
 gulp.task('clean', function () {
   return del ([
-    './production/',
-    './development/css/**',
+    './production/public/css/style.css',
+    './production/public/javascript/',
+    './production/public/lib/',
+    './production/public/images',
+
+    './development/css/style.css',
     './development/javascript/**',
     './development/lib/**',
     './development/maps/',
@@ -159,6 +208,50 @@ gulp.task('clean', function () {
   ]);
  
 });
+
+//Clean libs
+//««««««««««««««««««««««««««««««««««««««««««««««««««««««««««««««
+gulp.task('cleanLibs', function () {
+  return del ([
+    './production/public/lib/',
+    './development/lib/**',
+    './components/lib/'
+  ]);
+});
+
+
+//Image Minfication
+//««««««««««««««««««««««««««««««««««««««««««««««««««««««««««««««
+gulp.task('image_min', function(){
+   gulp.src('./development/images/**/**/*')
+     .pipe(imagemin())
+     .pipe(gulp.dest('./production/public/images'));
+});
+
+// NodeMon Task to auto restart the server (for Development)
+//«««««««««««««««««««««««««««««««««««««««««««««««««««««««««««««««
+// Nodemon
+gulp.task("nodemon", function(){
+  nodemon({
+    script: "server.js",
+    ext: "js, html, scss, ejs",
+    env: {
+      PORT: 9000
+    },
+    ignore: ['./node_modules/**']
+  })
+    .on('restart', function () {
+      console.log('Server Just restarted!');
+    });
+});
+
+// JS HINT (for Development)
+//«««««««««««««««««««««««««««««««««««««««««««««««««««««««««««««««
+gulp.task('lint', function () {
+  gulp.src('./components/javascript/**/**/*.js')
+    .pipe(jshint());
+});
+
 
 //////////////////////////////////////////////////////////
 /* «««««««««««««««« PRODUCTION ««««««««««««««««««««««««*/
@@ -169,7 +262,7 @@ gulp.task('clean', function () {
 //«««««««««««««««««««««««««««««
 // File Paths
 var js2uglify = ['./development/javascript/script.js'];
-var uglyJsDest = './production/javascript/';
+var uglyJsDest = './production/public/javascript/';
 // Task
 gulp.task('uglifyJs', function(){
    gulp.src(js2uglify)
@@ -189,15 +282,17 @@ gulp.task('uglifyJs', function(){
 // JS Libraries Minified files path
 var libMinSrc = [
     './components/lib/angular/angular.min.js', 
-    './components/lib/angular-resource/angular-resource.min.js',
     './components/lib/angular-route/angular-route.min.js',
+    './components/lib/angular-animate/angular-animate.min.js',
+    './components/lib/modernizer/modernizer.js',
     './components/lib/jquery_min/index.js',
-    './components/lib/jquery-migrate_min/index.js',
     './components/lib/bootstrap/dist/js/bootstrap.min.js',
-    './components/lib/jquery.easing/index.js',
-    './components/lib/jquery.compatibility/index.js',
+    './components/lib/typed.js/dist/typed.min.js',
+    './components/lib/wow/dist/wow.min.js',
+    './components/lib/Snap.svg/dist/snap.svg-min.js',
+    './components/customLibs/single-page-nav/jquery.singlePageNav.min.js'
 ];
-var libMinDest = './production/lib/js';
+var libMinDest = './production/public/lib/js';
 //Task
 gulp.task('concatMinLibs', function(){
   gulp.src(libMinSrc)
@@ -222,9 +317,10 @@ gulp.task('concatMinLibs', function(){
 //«««««««««««««««««««««««««««««««««««««««««««««««««««««««««««««««
 // CSS Libraries Minified files path
 var libMinCssSrc = [
-    './components/lib/bootstrap/dist/css/bootstrap.min.css'
+    './components/lib/bootstrap/dist/css/bootstrap.min.css',
+    './components/lib/animate.css/animate.min.css'
 ];
-var libMinCssDest = './production/lib/css/';
+var libMinCssDest = './production/public/lib/css/';
 //Task
 gulp.task('concatMinCssLibs', function(){
    gulp.src(libMinCssSrc)
@@ -242,7 +338,7 @@ gulp.task('concatMinCssLibs', function(){
 // gulp minify CSS (for Production)
 //««««««««««««««««««««««««««««««««««
 var cssSrc = 'development/css/style.css';
-var cssDest = 'production/css/';
+var cssDest = 'production/public/css/';
 //Task
 gulp.task('minifyCss', function(){
   return gulp.src(cssSrc)
@@ -259,8 +355,8 @@ gulp.task('minifyCss', function(){
 
 // Minify HTML task
 //««««««««««««««««««««
-var htmlSrc = ['./development/index.html'];
-var htmlDest = './production';
+var htmlSrc = ['./development/*.html'];
+var htmlDest = './production/public';
 // Task
 gulp.task('minifyHTML', function(){
   return gulp.src(htmlSrc)
@@ -270,7 +366,13 @@ gulp.task('minifyHTML', function(){
             this.emit('end');
         }
     }))
-  .pipe(htmlmin({collapseWhitespace: true, comment: true}))
+  .pipe(htmlmin({
+    collapseWhitespace: true, 
+    collapseInlineTagWhitespace: true,
+    conservativeCollapse: true,
+    html5: true,
+    removeComments: true
+  }))
   .pipe(gulp.dest(htmlDest));
 });
 
@@ -296,7 +398,7 @@ gulp.task('serverDev', function() {
 gulp.task('serverProd', function() {
     browserSync.init({
         server: {
-            baseDir: "./production"
+            baseDir: "./production/public"
         }
     });
 });
@@ -312,13 +414,14 @@ gulp.task('watch', function(){
   gulp.watch('./components/javascript/**/*.js', ['concatJs']);
   gulp.watch('./components/sass/**/*.scss', ['sass']);
   gulp.watch('./development/**/*.html', ['html']);
+  gulp.watch('./views/**/**/*.ejs', ['ejs']);
   //gulp.watch('./gulpfile.js', ['default']);
 });
 
 
 // gulp Default task
 //««««««««««««««««««««
-gulp.task('default', ['sass', 'html', 'concatJs', 'concatLibs', 'concatCssLibs', 'watch', 'serverDev']);
+gulp.task('default', ['sass', 'html', "nodemon", "lint", 'concatJs', 'concatLibs', 'concatCssLibs', 'watch', 'serverDev', 'image_min', 'ejs']);
 
 gulp.task('production', ['uglifyJs', 'concatMinLibs', 'minifyCss', 'concatMinCssLibs', 'minifyHTML', 'serverProd']);
 
