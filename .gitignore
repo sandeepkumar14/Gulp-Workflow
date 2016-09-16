@@ -37,8 +37,6 @@ bower_components/
 .sass-cache
 *.css.map
 *.js.map
-.css.map
-.js.map
 
 
 #Build System Files that will be ignored by git
@@ -46,17 +44,19 @@ bower_components/
 components/lib/
 components/custom_libs/
 
-# Development
+# ====== Development ===========
+
 
 development/lib/
-development/maps/
-development/images/
-development/css/fonts/
-# !development/images/favicon/
-# !development/images/json/
+development/lib/js/
+development/lib/css/
+development/images/**/
+development/css/fonts/**/
+# !development/images/favicon/**/**/
+# !development/images/json/**/**/
 
 
-# Production
+# ====== Production ===========
 
 production/
 

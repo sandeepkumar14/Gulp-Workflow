@@ -199,6 +199,8 @@ gulp.task('clean', function () {
     './production/public/javascript/',
     './production/public/lib/',
     './production/public/images',
+    './production/node_modules',
+
 
     './development/css/style.css',
     './development/javascript/**',
