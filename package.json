@@ -40,10 +40,10 @@
     "gulp-strip-comments": "^2.4.3",
     "gulp-uglify": "^2.0.0",
     "jshint": "^2.9.3",
-    "morgan": "^1.7.0",
     "nodemon": "^1.10.2"
   },
   "dependencies": {
+    "morgan": "^1.7.0",
     "body-parser": "^1.15.2",
     "cookie-parser": "^1.4.3",
     "ejs": "^2.5.1",
