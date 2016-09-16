@@ -73,7 +73,7 @@ gulp.task('html', function(){
 
 // gulp EJS task
 //««««««««««««««««««««
-var ejsSrc = './views/index.ejs';
+var ejsSrc = './views/pages/index.ejs';
 var ejsDest = './development/';
 
 gulp.task('ejs', function(){
@@ -109,8 +109,12 @@ gulp.src(ejsSrc)
 /* Custom Javascript files Concatenation */
 /*««««««««««««««««««««««««««««««««««««««««««««««««*/
 var jsSrc= [
-  "./components/javascript/sample1.js",
-  "./components/javascript/sample2.js",
+  "./components/javascript/navigation.js",
+  "./components/javascript/marquee.js",
+  "./components/javascript/aboutme.js",
+  "./components/javascript/svg-slider.js",
+  "./components/javascript/tooltip.js",
+  "./components/javascript/gotop.js",
 ];
 var jsDest = "./development/javascript/";
 
@@ -191,15 +195,15 @@ gulp.task('concatCssLibs', function(){
 
 
 //««««««««««««««««««««««««««««««««««««««««««««««««««««««««««««««
-// DELETE task  (Clean production and some development contents )
+// DELETE task  (Clean PRODUCTION and some development contents )
 //««««««««««««««««««««««««««««««««««««««««««««««««««««««««««««««
 gulp.task('clean', function () {
   return del ([
-    './production/public/css/style.css',
-    './production/public/javascript/',
-    './production/public/lib/',
-    './production/public/images',
-    './production/node_modules',
+    './production/build/public/css/style.css',
+    './production/build/public/javascript/script.js',
+    './production/build/public/lib/',
+    './production/build/public/images',
+    './production/build/node_modules',
 
 
     './development/css/style.css',
@@ -215,7 +219,7 @@ gulp.task('clean', function () {
 //««««««««««««««««««««««««««««««««««««««««««««««««««««««««««««««
 gulp.task('cleanLibs', function () {
   return del ([
-    './production/public/lib/',
+    './production/build/public/lib/',
     './development/lib/**',
     './components/lib/'
   ]);
@@ -227,7 +231,7 @@ gulp.task('cleanLibs', function () {
 gulp.task('image_min', function(){
    gulp.src('./development/images/**/**/*')
      .pipe(imagemin())
-     .pipe(gulp.dest('./production/public/images'));
+     .pipe(gulp.dest('./production/build/public/images'));
 });
 
 // NodeMon Task to auto restart the server (for Development)
@@ -264,7 +268,7 @@ gulp.task('lint', function () {
 //«««««««««««««««««««««««««««««
 // File Paths
 var js2uglify = ['./development/javascript/script.js'];
-var uglyJsDest = './production/public/javascript/';
+var uglyJsDest = './production/build/public/javascript/';
 // Task
 gulp.task('uglifyJs', function(){
    gulp.src(js2uglify)
@@ -294,7 +298,7 @@ var libMinSrc = [
     './components/lib/Snap.svg/dist/snap.svg-min.js',
     './components/customLibs/single-page-nav/jquery.singlePageNav.min.js'
 ];
-var libMinDest = './production/public/lib/js';
+var libMinDest = './production/build/public/lib/js';
 //Task
 gulp.task('concatMinLibs', function(){
   gulp.src(libMinSrc)
@@ -322,7 +326,7 @@ var libMinCssSrc = [
     './components/lib/bootstrap/dist/css/bootstrap.min.css',
     './components/lib/animate.css/animate.min.css'
 ];
-var libMinCssDest = './production/public/lib/css/';
+var libMinCssDest = './production/build/public/lib/css/';
 //Task
 gulp.task('concatMinCssLibs', function(){
    gulp.src(libMinCssSrc)
@@ -340,7 +344,7 @@ gulp.task('concatMinCssLibs', function(){
 // gulp minify CSS (for Production)
 //««««««««««««««««««««««««««««««««««
 var cssSrc = 'development/css/style.css';
-var cssDest = 'production/public/css/';
+var cssDest = 'production/build/public/css/';
 //Task
 gulp.task('minifyCss', function(){
   return gulp.src(cssSrc)
@@ -358,7 +362,7 @@ gulp.task('minifyCss', function(){
 // Minify HTML task
 //««««««««««««««««««««
 var htmlSrc = ['./development/*.html'];
-var htmlDest = './production/public';
+var htmlDest = './production/build/public';
 // Task
 gulp.task('minifyHTML', function(){
   return gulp.src(htmlSrc)
@@ -400,7 +404,7 @@ gulp.task('serverDev', function() {
 gulp.task('serverProd', function() {
     browserSync.init({
         server: {
-            baseDir: "./production/public"
+            baseDir: "./production/build/public"
         }
     });
 });
@@ -415,7 +419,7 @@ gulp.task('serverProd', function() {
 gulp.task('watch', function(){
   gulp.watch('./components/javascript/**/*.js', ['concatJs']);
   gulp.watch('./components/sass/**/*.scss', ['sass']);
-  gulp.watch('./development/**/*.html', ['html']);
+  gulp.watch('./development/*.html', ['html']);
   gulp.watch('./views/**/**/*.ejs', ['ejs']);
   //gulp.watch('./gulpfile.js', ['default']);
 });
