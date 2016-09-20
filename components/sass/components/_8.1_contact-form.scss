@@ -84,11 +84,11 @@
 .form-control {
   box-shadow: none;
   background: transparent;
-  border: 2px solid color-8;
+  border: 1px solid rgba(0,0,0,.3);
   height: 44px;
   font-size: 18px;
   font-weight: 400;
-  color: $color-2;
+  color: $color-20;
   // &:hover
   &:active, &:focus {
     outline: none;

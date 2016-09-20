@@ -384,7 +384,7 @@ nav.navbar-default div.container-fluid div.collapse ul.nav li a {
   .navbar-default .navbar-nav li a {
     color: #F7F5FA;
     display: block;
-    margin: 20px 0 20px 0 0;
+    margin: 0px 0 0px 0 0;
   }
   .navbar-default .navbar-nav li a:hover {
     color: #032B52;
@@ -912,7 +912,7 @@ nav.navbar-default div.container-fluid div.collapse ul.nav li a {
 .typed-txt .typing-container .element2 {
   display: inline-block;
   margin: 0;
-  color: #032B52;
+  color: #F7F5FA;
   /* 
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
@@ -1520,11 +1520,11 @@ main p {
 .form-control {
   box-shadow: none;
   background: transparent;
-  border: 2px solid color-8;
+  border: 1px solid rgba(0, 0, 0, 0.3);
   height: 44px;
   font-size: 18px;
   font-weight: 400;
-  color: #000741;
+  color: #595959;
 }
 
 .form-control:active, .form-control:focus {

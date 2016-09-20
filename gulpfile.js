@@ -17,7 +17,7 @@ var reload = browserSync.reload;
 var del = require('del');
 var imagemin = require('gulp-imagemin');
 var ejs = require("gulp-ejs");
-// var strip = require('gulp-strip-comments');
+var strip = require('gulp-strip-comments');
 var nodemon= require('gulp-nodemon');
 var jshint = require('gulp-jshint');
 
@@ -204,12 +204,14 @@ gulp.task('clean', function () {
     './production/build/public/lib/',
     './production/build/public/images',
     './production/build/node_modules',
+    './production/build/public/index.html',
 
 
     './development/css/style.css',
     './development/javascript/**',
     './development/lib/**',
     './development/maps/',
+    './development/index.html',
     // 'components/lib/'
   ]);
  
@@ -355,28 +357,33 @@ gulp.task('minifyCss', function(){
     .pipe(gulp.dest(cssDest));
 });
 
-
-// Minify HTML task
+// gulp HTML task
 //««««««««««««««««««««
-var htmlSrc = ['./development/*.html'];
-var htmlDest = './production/build/public';
+var devSrc = './development/index.html';
+var prodDest = './production/build/public/';
 // Task
-gulp.task('minifyHTML', function(){
-  return gulp.src(htmlSrc)
+gulp.task('stripComm', function(){
+  gulp.src(devSrc)
   .pipe(plumber({
         errorHandler: function (err) {
             console.log(err);
             this.emit('end');
         }
     }))
-  .pipe(htmlmin({
-    collapseWhitespace: true, 
-    collapseInlineTagWhitespace: true,
-    conservativeCollapse: true,
-    html5: true,
-    removeComments: true
-  }))
-  .pipe(gulp.dest(htmlDest));
+  .pipe(strip())
+  .pipe(gulp.dest(prodDest))
+  .pipe(reload({stream:true}));
+});
+
+// gulp Production HTML Minify
+//«««««««««««««««««««««««««««\
+var ProdHtml = './production/build/public/index.html';
+var prodHtmlMin = './production/build/index.html';
+ 
+gulp.task('minifyHtml', function() {
+  gulp.src(ProdHtml)
+    .pipe(htmlmin({collapseWhitespace: true}))
+    .pipe(gulp.dest(prodHtmlMin));
 });
 
 
@@ -426,7 +433,7 @@ gulp.task('watch', function(){
 //««««««««««««««««««««
 gulp.task('default', ['sass', 'html', "nodemon", "lint", 'concatJs', 'concatLibs', 'concatCssLibs', 'watch', 'serverDev', 'image_min', 'ejs']);
 
-gulp.task('production', ['uglifyJs', 'concatMinLibs', 'minifyCss', 'concatMinCssLibs', 'minifyHTML', 'serverProd']);
+gulp.task('production', ['uglifyJs', 'stripComm', 'concatMinLibs', 'minifyCss', 'concatMinCssLibs', 'serverProd', 'minifyHtml']);
 
 /*  */
 /*««««««««««««««««««««««««««««««««««««««««««««««««*/

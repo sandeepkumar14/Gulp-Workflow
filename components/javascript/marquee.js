@@ -139,31 +139,31 @@ function marqueeSinglePanel() {
 }
 
 /* Typed JS Code*/
-// $(function(){
-//     $(".element2").typed({
-//         // Waits 1000ms after typing "First"
-//         strings: [
-//             "I'm a Web Developer.^2000",
-//             "Based in Warsaw, Poland.^2000",
-//             "Available as Freelacer/B2B.^100000", 
-//             "I love to create web.^2000", 
-//             "What i can do?^2000",
-//             "Responsive design^2000",
-//             "Node JS, Angular JS^2000", 
-//             "Work with GIT, Gulp, Grunt^2000",
-//             "ReSTful API, MongoDB^2000",
-//             "Object Oriented JS^2000",
-//             "jQuery, SASS, LESS, CSS3,^2000",
-//             "HTML5, EJS and Jade.^2000",
-//             "Available to work as Freelacer/B2B."
-//         ],
-//         startDelay: 1500,
-//         typeSpeed: 30,
-//         backSpeed: 20,
-//         loop: false,
-//         showCursor: false,
-//         cursorChar: "|"
-//     });});
+$(function(){
+    $(".element2").typed({
+        // Waits 1000ms after typing "First"
+        strings: [
+            "I'm a Web Developer.^2000 ",
+            "Based in Warsaw, Poland.^2000 ",
+            "Available as Freelacer/B2B.^100000 ", 
+            "I love to create web.^2000 ", 
+            "What i can do?^2000 ",
+            "Responsive design^2000 ",
+            "Node JS, Angular JS^2000 ", 
+            "Work with GIT, Gulp, Grunt^2000 ",
+            "ReSTful API, MongoDB^2000 ",
+            "Object Oriented JS^2000 ",
+            "jQuery, SASS, LESS, CSS3,^2000 ",
+            "HTML5, EJS and Jade.^2000 ",
+            "Available to work as Freelacer/B2B. "
+        ],
+        startDelay: 1500,
+        typeSpeed: 30,
+        backSpeed: 20,
+        loop: false,
+        showCursor: false,
+        cursorChar: "|"
+    });});
 
 // Based in Warsaw, Poland. I have a passion for web design and love to create for web and mobile devices.
 
