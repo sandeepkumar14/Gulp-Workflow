@@ -52,7 +52,7 @@
         font-family: $primary-font, serif; 
         margin: 0 0 0 0; 
         font-weight: 400; font-size: 2.7em; 
-        color:rgba(0,0,0,.2); 
+        color:transparent; 
       }
       p { 
         margin: 0 50px 15px 50px; color: #888; 
@@ -115,7 +115,7 @@
 
 .marquee{
 
-  .btn{
+  .btn_mar{
     width: 39px;
     height: 39px;
     background: rgba(255, 255, 255, .2) no-repeat;
@@ -128,17 +128,17 @@
     transition: background-color .4s, border .4s; 
   }
 
-  .btn:hover{
+  .btn_mar:hover{
     background-color: #fff;
     background-color: rgba(0,0,0,.6);
   }
-  .btn.prev{
+  .btn_mar.prev{
     left: 20px;
     z-index: 104;
     background-image: url(../images/arrow_left.svg);
     background-position: -11px 2.5px;
   }
-  .btn.next{
+  .btn_mar.next{
     right: 20px;
     z-index: 105;
     background-image: url(../images/arrow_right.svg);
@@ -193,10 +193,10 @@ left: 100%;
 @media screen and (min-width: $large-device){
   .marquee{
     height: 600px;
-   .btn{
+   .btn_mar{
     top: 278px;
     }
-  .btn.next{
+  .btn_mar.next{
     right: 20px;
     z-index: 105;
     background-image: url(../images/arrow_right.svg);
@@ -252,7 +252,7 @@ left: 100%;
    transition: ease-out .2s;
 }
 .marquee{
-  .btn.next{
+  .btn_mar.next{
     right: 20px;
     z-index: 105;
     background-image: url(../images/arrow_right.svg);
@@ -283,16 +283,16 @@ left: 100%;
     margin-top: 30px;
     transform: translate(0%, -23%);
     -webkit-transform: translate(0%, -23%);
-    .btn{
+    .btn_mar{
       width: 32px;
       height: 32px;
       background-size: 33px 20px;
       top: 145px;
     }
-    .btn.prev{
+    .btn_mar.prev{
         background-position: -4px 4px;
     }
-    .btn.next{
+    .btn_mar.next{
       background-position: 0px 4px;
     }
     .marquee_panel{
@@ -356,13 +356,13 @@ left: 100%;
 }
 @media screen and (max-width: 816px){
 .marquee{
-  .btn.next{
+  .btn_mar.next{
     right: 3px;
     z-index: 105;
     background-image: url(../images/arrow_right.svg);
     background-position: 1px 4px;
   }
-  .btn.prev{
+  .btn_mar.prev{
     left: 7px;
   }
   .device-logo{
@@ -389,18 +389,19 @@ left: 100%;
 @media screen and (max-width: 767px){
 .marquee{
   height: 250px;
-  transform: translate(0%, -23%);
+  margin-top: 26px;
+  transform: translate(0%, -20%);
   -webkit-transform: translate(0%, -4%);
   .marquee_panel .panel_caption h3{
     font-size: 25px;
   }
-  .btn.next{
+  .btn_mar.next{
     right: 7px;
     z-index: 105;
     background-image: url(../images/arrow_right.svg);
     background-position: 1px 4px;
   }
-  .btn.prev{
+  .btn_mar.prev{
     left: 7px;
   }
   .device-logo{
@@ -497,7 +498,7 @@ left: 100%;
     font-family:$secondary-font;
     font-size: 50px;
     display: inline-block;
-    color: $color-4;
+    color: $color-9;
     opacity: 1;
   }
 } 

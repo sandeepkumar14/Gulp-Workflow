@@ -29,7 +29,7 @@
 .form-title01{
     font-weight: 300;
     line-height: 1.5;
-    color: $color-2;
+    color: $color-3;
     font-family: $other-font;
     margin-bottom: 10px;
     @media screen and (max-width:$small-device) {
@@ -48,7 +48,7 @@
     margin: 0 0 20px 0;
     font-size: 50px;
     font-weight: 300;
-    color: $color-2;
+    color: $color-3;
     text-transform: uppercase;
     position: relative;
     display: block;
@@ -60,7 +60,7 @@
       display: block;
       width: 100px;
       height: 4px;
-      background: $color-12;
+      background: $color-1;
       left: 50%;
       margin-left: -53px;
       bottom: 0;
@@ -72,7 +72,7 @@
   h3 {
     font-weight: 300;
     line-height: 1.5;
-    color: $color-2;
+    color: $color-8;
     @media screen and (max-width:$small-device) {
       font-size: 14px!important;
       line-height: 25px;
@@ -93,7 +93,7 @@
   &:active, &:focus {
     outline: none;
     box-shadow: none;
-    border-color: $color-2;
+    border-color: $color-25;
   }
 }
 .btn {
@@ -121,11 +121,11 @@
         top: 0;
         left: 0;
         font-size: 25px;
-        color: $color-7;
+        color: $color-4;
 
       }
       i:hover{
-        color: $color-9;
+        color: $color-16;
       }
       span{
         line-height: 1.6;
@@ -150,15 +150,15 @@
   letter-spacing: 2px;
   @include transition(.3s);
   &.btn-primary {
-    background: $color-2;
-    color: $color-4;
+    background: $color-4;
+    color: $color-9;
     border: none!important;
     border: 2px solid transparent!important;
     @include border-radius(10%);
   }
   &:hover, &:active, &:focus {
-    background: $color-9!important;
-    color: $main-text;
+    background: $color-16!important;
+    color: $color-9;
     outline: none!important;
   }
   @media screen and (max-width:$small-device) {

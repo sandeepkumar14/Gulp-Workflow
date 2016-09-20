@@ -30,6 +30,12 @@ $extra-small-device: 600px;
   -moz-osx-font-smoothing: grayscale;
 }
 
+@mixin column($percentage, $float-direction:left) {
+  width: 100% * $percentage;
+  float: $float-direction;
+}
+
+
 // rem fallback - credits: http://zerosixthree.se/
 
 @function calculateRem($size) {
@@ -66,6 +72,9 @@ $extra-small-device: 600px;
   }
 }
 
+@mixin border-radius($radius:.25em) {
+  border-radius: $radius;
+}
 
 ///////////////////////////////////////////
 @mixin transition($transition) {

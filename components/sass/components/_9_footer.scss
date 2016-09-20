@@ -7,7 +7,7 @@
   .text-center{
 
   p{
-    color: $color-2;
+    color: $color-1;
     // padding-bottom: 0px;
     br{
       // padding-top: 20px;
@@ -15,10 +15,10 @@
     a{
       font-family: $other-font;
       text-decoration: none;
-      color: $color-11;
+      color: $color-16;
     }
     a:hover{
-      color: $color-9;
+      color: $color-14;
     }
   }
   }
@@ -53,7 +53,7 @@
         color: $color-4;
       }
       &:hover {
-        background: $color-9!important;
+        background: $color-25; //!important;
         text-decoration: none;
       }
 

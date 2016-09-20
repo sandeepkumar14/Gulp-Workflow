@@ -13,13 +13,13 @@ html {
 }
 body {
   padding-top: 40px;
-  display: relative;
+  position: relative;
   font: {
     size: 100%;
     family: $primary-font;
   }
-  color: $color-2;
-  background-color: $color-4;
+  color: $main-text;
+  background-color: $color-9;
   @include font-smoothing;
   overflow-x: hidden;
 

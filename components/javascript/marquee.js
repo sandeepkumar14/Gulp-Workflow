@@ -1,7 +1,7 @@
 var marqueeVars = { 
   screenSize: '', 
   width: 0, 
-  mobileSize:1767, 
+  mobileSize: 767, 
   autoPlay: true, 
   currentPanel: 1, 
   totalPanels: 0, 
@@ -70,7 +70,7 @@ if(marqueeVars.timePassed == marqueeVars.timeToChange){
 function marqueeMultiPanel(){
     marqueeVars.timePassed = 0;
     marqueeVars.autoPlay = true;
-    var newHTML = '<div class="marquee_stage_large"><div class="marquee_container_1"></div><div class="marquee_nav"></div><div class="btn prev"></div><div class="btn next"></div></div>';
+    var newHTML = '<div class="marquee_stage_large"><div class="marquee_container_1"></div><div class="marquee_nav"></div><div class="btn_mar prev"></div><div class="btn_mar next"></div></div>';
     $('.marquee').html('').append(newHTML);
 
     for (i=0; i<marqueeVars.totalPanels; i++ ){
@@ -84,7 +84,7 @@ function marqueeMultiPanel(){
     marqueeVars.timePassed = Math.floor(marqueeVars.timeToChange / 2);
     });
 
-    $('.marquee .btn').on('click', function(){
+    $('.marquee .btn_mar').on('click', function(){
       if( !marqueeVars.inTransition ){
 
         if( $(this).hasClass('prev')) {
@@ -139,31 +139,31 @@ function marqueeSinglePanel() {
 }
 
 /* Typed JS Code*/
-$(function(){
-    $(".element").typed({
-        // Waits 1000ms after typing "First"
-        strings: [
-            "I'm a Web Developer.^2000",
-            "Based in Warsaw, Poland.^2000",
-            "Available as Freelacer/B2B.^100000", 
-            "I love to create web.^2000", 
-            "What i can do?^2000",
-            "Responsive design^2000",
-            "Node JS, Angular JS^2000", 
-            "Work with GIT, Gulp, Grunt^2000",
-            "ReSTful API, MongoDB^2000",
-            "Object Oriented JS^2000",
-            "jQuery, SASS, LESS, CSS3,^2000",
-            "HTML5, EJS and Jade.^2000",
-            "Available to work as Freelacer/B2B."
-        ],
-        startDelay: 1500,
-        typeSpeed: 30,
-        backSpeed: 20,
-        loop: false,
-        showCursor: false,
-        cursorChar: "|"
-    });});
+// $(function(){
+//     $(".element2").typed({
+//         // Waits 1000ms after typing "First"
+//         strings: [
+//             "I'm a Web Developer.^2000",
+//             "Based in Warsaw, Poland.^2000",
+//             "Available as Freelacer/B2B.^100000", 
+//             "I love to create web.^2000", 
+//             "What i can do?^2000",
+//             "Responsive design^2000",
+//             "Node JS, Angular JS^2000", 
+//             "Work with GIT, Gulp, Grunt^2000",
+//             "ReSTful API, MongoDB^2000",
+//             "Object Oriented JS^2000",
+//             "jQuery, SASS, LESS, CSS3,^2000",
+//             "HTML5, EJS and Jade.^2000",
+//             "Available to work as Freelacer/B2B."
+//         ],
+//         startDelay: 1500,
+//         typeSpeed: 30,
+//         backSpeed: 20,
+//         loop: false,
+//         showCursor: false,
+//         cursorChar: "|"
+//     });});
 
 // Based in Warsaw, Poland. I have a passion for web design and love to create for web and mobile devices.
 

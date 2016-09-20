@@ -10,8 +10,8 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^3.3.7",
-    "jquery": "https://code.jquery.com/jquery-3.0.0.js",
-    "jquery_min": "https://code.jquery.com/jquery-3.0.0.min.js",
+    "jquery": "https://code.jquery.com/jquery-2.2.4.js",
+    "jquery_min": "https://code.jquery.com/jquery-2.2.4.min.js",
     "angular": "^1.5.8",
     "angular-route": "^1.5.8",
     "angular-animate": "^1.5.8",

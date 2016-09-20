@@ -147,9 +147,9 @@ var libSrc= [
     './components/lib/angular/angular.js', 
     './components/lib/angular-route/angular-route.js',
     './components/lib/angular-animate/angular-animate.js',
-    './components/lib/modernizer/modernizer.js',
     './components/lib/jquery/index.js',
     './components/lib/jquery-migrate/index.js', 
+    './components/lib/modernizer/modernizer.js',
     './components/lib/bootstrap/dist/js/bootstrap.js',
     './components/lib/jquery.easing/index.js',
     './components/lib/typed.js/js/typed.js',
@@ -239,11 +239,8 @@ gulp.task('image_min', function(){
 // Nodemon
 gulp.task("nodemon", function(){
   nodemon({
-    script: "server.js",
+    script: "./bin/www",
     ext: "js, html, scss, ejs",
-    env: {
-      PORT: 9000
-    },
     ignore: ['./node_modules/**']
   })
     .on('restart', function () {
@@ -290,8 +287,8 @@ var libMinSrc = [
     './components/lib/angular/angular.min.js', 
     './components/lib/angular-route/angular-route.min.js',
     './components/lib/angular-animate/angular-animate.min.js',
-    './components/lib/modernizer/modernizer.js',
     './components/lib/jquery_min/index.js',
+    './components/lib/modernizer/modernizer.js',
     './components/lib/bootstrap/dist/js/bootstrap.min.js',
     './components/lib/typed.js/dist/typed.min.js',
     './components/lib/wow/dist/wow.min.js',

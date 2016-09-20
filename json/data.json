@@ -1,0 +1,131 @@
+{
+  "skills" : [{
+      "title":"Node JS",
+      "shortname":"node_js",
+      "reknown":"Node js server-side javascript",
+      "info":"I have knowledge of Node js. I understand the nature of asynchronous programming in nodejs. The knowledge of module based coding and good understanding of server-side templating languages such as Jade, EJS depending on technology stack. Good knowledge about the npm packages for node and their use. My own website i created using the node js as server-side language. I used the express as framework, body parser to parse data, nodemon to automate the server restart, mongoose to connect the data to the database and morgan for error check. Here i used few packages, but i worked with more advanced features of node like socket.io for the real time communication and crate the custom modules and import export those modules according to need. Basically i am learning more and more each day, learn technologies like node/angular is kind of hobby for me and i love working with these technologies. I am really seeking a company where i can work and learn more and more each about these awesome technologies"
+    },
+    {
+      "title":"NPM Package Manager",
+      "shortname":"npm",
+      "reknown":"Node Package Manager",
+      "info":"Using terminal importing packages is fun. I am enjoy work on terminal and this package manager that comes with node make it much more easy to work with these front and backend technologies. I have knowledge of package,json file and know how to insatll packages as dev dependenties and dependencies and manage them."
+    },
+    {
+      "title":"Angular JS",
+      "shortname":"angular_js",
+      "reknown":"Angular js Framework",
+      "info":"I have knowledge of angualr framework and know how angular work , knowledge of AngularJS concept and commonly used modules. About angular i understnd the concept of directives, controllers, data Binding -importance of $scope objects, services, filters, dependency Injection, routes, ajax using $http and JSONP. Most importanly i am using the angular in my website. Using the routin, promises and http service to get JSON data. Other than this i have explored the angular in variety of ways. I am learning this framework by time more and more. There are always improvements and updates in angular. To me angular is best framework for client-side frontend technology. "
+    },
+    {
+      "title":"jQuery",
+      "shortname":"jquery",
+      "reknown":"JavaScript Library",
+      "info":"I have strong understanding of this javascript library. This is kind of must have skill for frontend. I spent lot of time to understand the core concept behind this technology. Very first thing i have strong knowledge of selectors to manipulate the html document. Create ids and classes from jquery and less use of css3. Interact with the dom and crate different kind of events accordingly. Apart from this i have knowlege of AJAX to handle the request like get and post and fully control the ajex requests. The most important thing i understnd the function in javascript, like function on the fly, first class functions concept, anonymous/function expression, scope, arrays use in function, push function/string, number in an array and various type of inbuilt timing functions. Additionally jquery mobile and jquery easing use as dependency to improve the app performance."
+    },
+    {
+      "title":"Objec Oriented JavaScript",
+      "shortname":"obj_javascript",
+      "reknown":"Knowledge of Object Oriented Javascript ",
+      "info":"I have good knowledge of object oriented javascript language. First of all i do understand the how pure javascript work and it functionalities. But usually and most common approach is jquery which i use mostly. I understand the concept of object and object literal. The object in js just name-value pair and there can a chain of these pairs. It can be function/array or string. The object literal help to access the data of object. There are varity of ways to access the object data, depends upon what we want to access, whether its a function, string or array. So i understand how to deal with it. Apart from this i understand the inheritence and prototyping in javascript. The prototype comcept is very common in node when deal with the modules. The knowledge of function constructor that is important in order to work with the node.  "
+    },
+    {
+      "title":"JSON",
+      "shortname":"json",
+      "reknown":"Javascript Object Notation",
+      "info":"I understand the JSON which is standard for structuring the data in order to access, put, delete or update it. JSON is very much like javascript object notation, infact they seems same but JSON is inpired fron javascript object notation. JSON is document based and it is very easy to understand and most importantly it is helpful as in mongodb we use the same concept to store data. There is so many ways can use JSON in node JS and it is very light and easy to use."
+    },
+    {
+      "title":"Mongo DB",
+      "shortname":"mongodb",
+      "reknown":"Mongo db  ",
+      "info":"I understand the whole concept of mongo and how to manage the mongodb data, a noSQL database. It is one of the core techique to store JSON data as databse in MEAN stack. I have knowledge of mongo such as query, parameter and mongo shell. I have worked both on mac and window to configure the mongodb both manually and using brew. Create queries in terminal, use of parameters to update, delete, find, create new dbs, find specific queries, rename specific query, use of operators and import the data into mongo from local disk. To use the mongodb in node i use the mongo client mongolab that i use in mean stack app. Overall i am familar with all the important mongo commands that we use the manage the database."
+    },
+    {
+      "title":"Gulp and Grunt",
+      "shortname":"gulp",
+      "reknown":"Workflows to automate the process",
+      "info":"I have explored thses two workflows. But personally i prefer gulp over grunt. The reason is basically gulp is more like nodejs, the syntax is more es6 type and easy to remember. But i also worked with grunt, it is nice in its own way. But i can work with thsese two without any issue. I have knowledge of all the imporatnt packges that we use in workflow to improve the productivity. The few i am mentioning here like browser sync, it is really awesome, When it comes to develop website both for mobile and pc devices, with the help of browser sync we can test at same time. More over i understand how to work with development of production environment, minify css and js to reduce size and improve the load time. I am using gulp sass to preproccess the css."
+    },
+    {
+      "title":"Git",
+      "shortname":"git",
+      "reknown": "Github Social Programming.",
+      "info":"I use the git for version control. I have knowlege of all the commands to use the git from terminal. Push, pull or update the git repos from terminal. Work in a term and commit and make changes for the group project. Use the git and deply apps to the heroku or digital ocean. I also know how to create the documentation for a project."
+    },
+    {
+      "title":"SASS",
+      "shortname":"sass",
+      "reknown":"CSS preprocessor (SASS)",
+      "info":"I understand how sass work, and all its functionalities like variables, mixins, partials, operators and other important functions. Since i am using gulp so i am using gulp-sass to proccess sass. I use the plugin gulp-autoprefixer to add vendor prefixer and gulp maps to produce maps for the development purpose. Overall i can say that sass is really fast and effective than deal with css directly. The other css preprocessor like less is too easy to understand and work sice the syntax and cocept is almost same."
+    },
+    {
+      "title":"Bootstarp",
+      "shortname":"bootstarp",
+      "reknown":"Bootstrap CSS Framework ",
+      "info":"I have understand the bootstrap framework. Most importantly the 12 column grid system of bootstrap framework to layout the website and use the media queries for responsive layout. Moreover understand the bootstrap documentation and i can quickly use the default bootstrap componets and make changes to them as per requiremnets. For single page app, use of scrol spy and other javascript tricks for the effective frontend development."
+    },  
+    {
+      "title":"More Skills",
+      "shortname":"more",
+      "reknown":"More development skills",
+      "info":"Previously i have explained the most of the skills that i aquired. But that is not all, and there is lot more and it will never end since i learn more each day. I have strong knowledge of css and html. I can work directly with css or using sass which is more time effective. In term of html i also know the server side template engines like ejs and jade, which are html with extensive features. I can work with ejs and jade base on requirements. I have great knowlodge to work with sublime, brackets and atom editor. Most specially with the sublime text editor. Use of jshint, csshint and htmlhint plugin to debug while development. I can work with materialize js libaray, types.js, and jquery mobile."
+    },
+    {
+      "title":"Adobe Products",
+      "shortname":"adobe",
+      "reknown":"Adobe suite use",
+      "info":"I have good undestanding of use of abobe suite in web development. I can create, edit the svg images in the abobe illustrate. Use of svg images in website, how the crop the images or vodeos on photoshop, adobe premiere and media encoder to produce videos for the different browser and reduce the size for quick load. Moveover i can use the fonts locally or from the online services like font awesome or google fonts."
+    }],
+
+  "person" : [{
+      "name" : "Sandeep Kumar", 
+      "age" : 25,
+      "country" : "Poland"
+  },
+  {
+      "name" : "Dortka", 
+      "age" : 30,
+      "country" : "Poland"
+  }]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -220,3 +220,49 @@ Main Components
         transform: translateX(50%) translateY(-50%) scale(1);
     }
 }
+
+
+
+h3.section-subheading{
+  padding-bottom: 20px;
+}
+.img-centered {
+    margin: 0 auto;
+}
+.img-circle{
+  border-radius: 50%;
+  width: 200px;
+}
+.team-member {
+    text-align: center;
+    margin-bottom: 50px;
+    img {
+        margin: 0 auto;
+        border: 7px solid white;
+    }
+    h4 {
+        margin-top: 25px;
+        margin-bottom: 0;
+        text-transform: none;
+        margin-top: 10px;
+        margin-bottom: 10px;
+
+    }
+    p.btn {
+        margin-top: 0;
+
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
