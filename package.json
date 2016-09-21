@@ -1,5 +1,5 @@
 {
-  "name": "Gulp Startup",
+  "name": "GulpStartup",
   "version": "1.0.0",
   "description": "Sample gulp workflow",
   "main": "server.js",
@@ -34,6 +34,7 @@
     "gulp-jshint": "^2.0.1",
     "gulp-nodemon": "^2.1.0",
     "gulp-plumber": "^1.1.0",
+    "gulp-remove-empty-lines": "0.0.8",
     "gulp-sass": "^2.3.2",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-strip-comments": "^2.4.3",

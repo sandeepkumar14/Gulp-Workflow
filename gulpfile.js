@@ -8,7 +8,7 @@ var sass= require('gulp-sass');
 var uglify= require('gulp-uglify');
 var cleanCSS = require('gulp-clean-css');
 var sourcemaps = require('gulp-sourcemaps');
-var htmlmin = require('gulp-html-minifier');
+// var htmlmin = require('gulp-html-minifier');
 var plumber= require('gulp-plumber');
 var browserSync = require('browser-sync').create();
 var autoprefixer= require('gulp-autoprefixer'); 
@@ -17,6 +17,7 @@ var del = require('del');
 var imagemin = require('gulp-imagemin');
 var ejs = require("gulp-ejs");
 var strip = require('gulp-strip-comments');
+var removeEmptyLines = require('gulp-remove-empty-lines');
 var nodemon= require('gulp-nodemon');
 var jshint = require('gulp-jshint');
 
@@ -369,6 +370,26 @@ gulp.task('minifyCss', function(){
 });
 
 
+// EJS for Production (for Production)
+//««««««««««««««««««««««««««««««««««
+var devEjsSrc = './views/**/*.ejs';
+var prodEjsDest = 'production/build/views';
+//Task
+gulp.task('copyViews', function(){
+  return gulp.src(devEjsSrc)
+    .pipe(plumber({
+        errorHandler: function (err) {
+            console.log(err);
+            this.emit('end');
+        }
+    }))
+    .pipe(removeEmptyLines({
+      removeComments: true
+    }))
+    .pipe(strip())
+    .pipe(gulp.dest(prodEjsDest));
+});
+
 
 //////////////////////////////////////////////////////////
 /* ««««««««««««««« BROWSER SYNC (SERVER) «««««««««««««««*/
@@ -406,7 +427,7 @@ gulp.task('watch', function(){
   gulp.watch('./components/javascript/**/*.js', ['concatJs']);
   gulp.watch('./components/sass/**/*.scss', ['sass']);
   gulp.watch('./development/index.html', ['html']);
-  gulp.watch('./views/**/**/*.ejs', ['ejs']);
+  gulp.watch('./views/**/**/*.ejs', ['ejs', 'html']);
   //gulp.watch('./gulpfile.js', ['default']);
 });
 
