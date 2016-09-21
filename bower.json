@@ -1,0 +1,25 @@
+{
+  "name": "gulp",
+  "description": "This is a sample gulp workflow.",
+  "main": "gulpfile.js",
+  "authors": [
+    "Sandeep Kumar"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-route": "^1.5.8",
+    "angular-animate": "^1.5.8",
+    "modernizer": "^2.8.2",
+    "jquery": "https://code.jquery.com/jquery-2.2.4.js",
+    "jquery-migrate": "https://code.jquery.com/jquery-migrate-3.0.0.js",
+    "jquery_min": "https://code.jquery.com/jquery-2.2.4.min.js",
+    "bootstrap": "^3.3.7",
+    "typed.js": "^1.1.4",
+    "wow": "^1.1.2",
+    "animate.css": "^3.5.2",
+    "Snap.svg": "snap.svg#^0.4.1"
+  }
+}
