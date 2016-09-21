@@ -1,8 +1,0 @@
-{
-  "name": "Start on Heroku: Node.js",
-  "description": "Mean app using Restful api.",
-  "repository": "https://github.com/sandeepkumar14/rest_meanapp.git",
-  "logo": "http://node-js-sample.herokuapp.com/node.svg",
-  "keywords": ["node", "express", "static"],
-  "image": "heroku/nodejs"
-}
